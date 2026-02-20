@@ -32,7 +32,7 @@ endif()
 include($ENV{PICO_SDK_PATH}/pico_sdk_init.cmake)
 
 # Change the first argument with your project name!
-project(pico-template-impl C CXX ASM)
+project(pico-timetrials-impl C CXX ASM)
 
 pico_sdk_init()
 
@@ -46,7 +46,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
     pico_stdlib
-    pico-template-lib
+    pico-timetrials-lib
 )
 
 pico_enable_stdio_usb(${CMAKE_PROJECT_NAME} 1)

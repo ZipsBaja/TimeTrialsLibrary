@@ -1,0 +1,6 @@
+[submodule "lib/ZipsPicoLib"]
+	path = lib/ZipsPicoLib
+	url = https://github.com/ZipsBaja/ZipsPicoLib
+[submodule "lib/SegmentDisplayLibrary"]
+	path = lib/SegmentDisplayLibrary
+	url = https://github.com/ZipsBaja/SegmentDisplayLibrary
