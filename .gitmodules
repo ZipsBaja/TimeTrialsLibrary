@@ -4,3 +4,6 @@
 [submodule "lib/SegmentDisplayLibrary"]
 	path = lib/SegmentDisplayLibrary
 	url = https://github.com/ZipsBaja/SegmentDisplayLibrary
+[submodule "lib/pico-ssd1306-ui"]
+	path = lib/pico-ssd1306-ui
+	url = https://github.com/zyoung71/pico-ssd1306-ui

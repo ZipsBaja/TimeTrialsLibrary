@@ -8,12 +8,12 @@ if (NOT TARGET ${LIBRARY_NAME})
 
     )
     add_subdirectory(lib/ZipsPicoLib)
-    add_subdirectory(lib/SegmentDisplayLibrary)
+    add_subdirectory(lib/pico-ssd1306-ui)
 
     target_link_libraries(${LIBRARY_NAME}
 
         ZipsPicoLib
-        pico-segmentdisplay-lib
+        pico-ssd1306-ui
     )
     target_include_directories(${LIBRARY_NAME} PUBLIC
         include
