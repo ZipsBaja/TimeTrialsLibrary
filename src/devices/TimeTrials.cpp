@@ -46,17 +46,17 @@ char lap3_time_str[6];
 char lap4_time_str[6];
 char lap5_time_str[6];
 
-TextComponent lap1_label = TextComponent(&manager, Vec2i32{2,2}, lap1_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap2_label = TextComponent(&manager, Vec2i32{2,14}, lap2_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap3_label = TextComponent(&manager, Vec2i32{2,26}, lap3_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap4_label = TextComponent(&manager, Vec2i32{2,38}, lap4_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap5_label = TextComponent(&manager, Vec2i32{2,50}, lap5_str, &SSD1306::default_font, 10, &main_screen);
+TextComponent lap1_label = TextComponent(&manager, Vec2i32{2,2}, lap1_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap2_label = TextComponent(&manager, Vec2i32{2,14}, lap2_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap3_label = TextComponent(&manager, Vec2i32{2,26}, lap3_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap4_label = TextComponent(&manager, Vec2i32{2,38}, lap4_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap5_label = TextComponent(&manager, Vec2i32{2,50}, lap5_str, &fonts::default_font, 10, &main_screen);
 
-TextComponent lap1_time_label = TextComponent(&manager, Vec2i32{63,2}, lap1_time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap2_time_label = TextComponent(&manager, Vec2i32{63,14}, lap2_time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap3_time_label = TextComponent(&manager, Vec2i32{63,26}, lap3_time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap4_time_label = TextComponent(&manager, Vec2i32{63,38}, lap4_time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent lap5_time_label = TextComponent(&manager, Vec2i32{63,50}, lap5_time_str, &SSD1306::default_font, 10, &main_screen);
+TextComponent lap1_time_label = TextComponent(&manager, Vec2i32{63,2}, lap1_time_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap2_time_label = TextComponent(&manager, Vec2i32{63,14}, lap2_time_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap3_time_label = TextComponent(&manager, Vec2i32{63,26}, lap3_time_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap4_time_label = TextComponent(&manager, Vec2i32{63,38}, lap4_time_str, &fonts::default_font, 10, &main_screen);
+TextComponent lap5_time_label = TextComponent(&manager, Vec2i32{63,50}, lap5_time_str, &fonts::default_font, 10, &main_screen);
 
 GPIODeviceDebounce timetrials_sensor = GPIODeviceDebounce(TIMETRIALS_SENSOR_PIN, Pull::UP, GPIO_IRQ_EDGE_FALL, 2000);
 TimeHandler clock;
@@ -79,12 +79,12 @@ namespace devices
     void timetrials_init()
     {
         manager.SetTargetRefreshRate(50.f);
-        time_display.SetFontScale(2);
-        time_label.SetFontScale(2);
+        time_display.SetScale({2,2});
+        time_label.SetScale({2,2});
 
 
 
-        timetrials_sensor.AddAction([](const Event* ev, void* ptr)
+        std::ignore = timetrials_sensor.AddAction([](const Event* ev, void* ptr)
         {
             if(!button_pressed)
             {
@@ -151,7 +151,7 @@ namespace devices
             }
         });
 
-        restart_button.AddAction([](const Event* ev, void*){
+        std::ignore = restart_button.AddAction([](const Event* ev, void*){
             ButtonEvent* b_event = ev->GetEventAsType<ButtonEvent>();
             if (b_event -> WasPressed())
             {
@@ -183,7 +183,7 @@ namespace devices
             }
         });
        
-        read_button.AddAction([](const Event * ev, void*){
+        std::ignore = read_button.AddAction([](const Event * ev, void*){
             ButtonEvent* b_event = ev->GetEventAsType<ButtonEvent>();
             if (b_event -> WasPressed())
             {
@@ -226,11 +226,11 @@ namespace devices
                     strncpy(lap4_str, "", sizeof(lap4_str));
                     strncpy(lap5_str, "", sizeof(lap5_str));
 
-                    strncpy(lap1_time_str, "", sizeof(lap1_str));
-                    strncpy(lap2_time_str, "", sizeof(lap2_str));
-                    strncpy(lap3_time_str, "", sizeof(lap3_str));
-                    strncpy(lap4_time_str, "", sizeof(lap4_str));
-                    strncpy(lap5_time_str, "", sizeof(lap5_str));
+                    strncpy(lap1_time_str, "", sizeof(lap1_time_str));
+                    strncpy(lap2_time_str, "", sizeof(lap2_time_str));
+                    strncpy(lap3_time_str, "", sizeof(lap3_time_str));
+                    strncpy(lap4_time_str, "", sizeof(lap4_time_str));
+                    strncpy(lap5_time_str, "", sizeof(lap5_time_str));
 
 
                     strncpy(time_str, "TIME:", sizeof(time_str));
@@ -352,6 +352,6 @@ void cpy_lap_time(char* lap_str, short lap_num)
     }
     else
     {
-        strncpy(lap_str, "-/-", sizeof(lap_str));
+        strcpy(lap_str, "-/-");
     }    
 }
