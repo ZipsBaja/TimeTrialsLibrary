@@ -6,7 +6,7 @@
 #include <interactive-ui/ScreenManager.h>
 #include <interactive-ui/Screen.h>
 
-#define TIMETRIALS_SENSOR_PIN 6
+#define TIMETRIALS_SENSOR_PIN 18
 
 extern ScreenManager manager;
 extern Screen main_screen;
