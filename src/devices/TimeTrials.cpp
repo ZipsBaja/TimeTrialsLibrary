@@ -21,18 +21,18 @@ char star4_str[2];
 char star5_str[2];
 
 
-TextComponent time_display = TextComponent(&manager, Vec2i32{63, 2}, current_time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent time_label = TextComponent(&manager, Vec2i32{2, 2}, time_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent reset_label = TextComponent(&manager, Vec2i32{2, 55}, reset_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent read_label = TextComponent(&manager, Vec2i32{103, 55}, read_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent stopped_label = TextComponent(&manager, Vec2i32{48, 33}, stopped_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent stop_label = TextComponent(&manager, Vec2i32{2, 55}, stop_str, &SSD1306::default_font, 10, &main_screen);
+TextComponent time_display = TextComponent(&manager, Vec2i32{63, 2}, current_time_str, &fonts::default_font, 10, &main_screen);
+TextComponent time_label = TextComponent(&manager, Vec2i32{2, 2}, time_str, &fonts::default_font, 10, &main_screen);
+TextComponent reset_label = TextComponent(&manager, Vec2i32{2, 55}, reset_str, &fonts::default_font, 10, &main_screen);
+TextComponent read_label = TextComponent(&manager, Vec2i32{103, 55}, read_str, &fonts::default_font, 10, &main_screen);
+TextComponent stopped_label = TextComponent(&manager, Vec2i32{48, 33}, stopped_str, &fonts::default_font, 10, &main_screen);
+TextComponent stop_label = TextComponent(&manager, Vec2i32{2, 55}, stop_str, &fonts::default_font, 10, &main_screen);
 
-TextComponent star1 = TextComponent(&manager, Vec2i32{2, 30}, star1_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent star2 = TextComponent(&manager, Vec2i32{8, 30}, star2_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent star3 = TextComponent(&manager, Vec2i32{14, 30}, star3_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent star4 = TextComponent(&manager, Vec2i32{20, 30}, star4_str, &SSD1306::default_font, 10, &main_screen);
-TextComponent star5 = TextComponent(&manager, Vec2i32{26, 30}, star5_str, &SSD1306::default_font, 10, &main_screen);
+TextComponent star1 = TextComponent(&manager, Vec2i32{2, 30}, star1_str, &fonts::default_font, 10, &main_screen);
+TextComponent star2 = TextComponent(&manager, Vec2i32{8, 30}, star2_str, &fonts::default_font, 10, &main_screen);
+TextComponent star3 = TextComponent(&manager, Vec2i32{14, 30}, star3_str, &fonts::default_font, 10, &main_screen);
+TextComponent star4 = TextComponent(&manager, Vec2i32{20, 30}, star4_str, &fonts::default_font, 10, &main_screen);
+TextComponent star5 = TextComponent(&manager, Vec2i32{26, 30}, star5_str, &fonts::default_font, 10, &main_screen);
 
 char lap1_str[7];
 char lap2_str[7];
