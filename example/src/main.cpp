@@ -6,20 +6,7 @@
 #include <interactive-ui/ScreenManager.h>
 #include <interactive-ui/Screen.h>
 
-struct _init
-{
-    inline _init()
-    {
-        stdio_init_all();
-        i2c_init(i2c1, 800000);
-        while (!stdio_usb_connected()) 
-        {
-            sleep_ms(100);
-        }
-    }
-} _init_inst;
-
-SSD1306 oled_display(16, 21, i2c0);
+SSD1306 oled_display(20, 21, i2c0);
 ScreenManager manager(&oled_display);
 Screen main_screen(&manager, 128, 64);
 
@@ -29,6 +16,13 @@ Screen main_screen(&manager, 128, 64);
 
 int main()
 {
+    stdio_init_all();
+    i2c_init(i2c0, 400000);
+    if (!oled_display.Initialize())
+    {
+        printf("Failed to initialize SSD1306 display\n");
+        return 1;
+    }
 
     oled_display.Power(true);
     oled_display.ClearDisplay();
